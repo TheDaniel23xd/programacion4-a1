@@ -9,14 +9,14 @@
 ### Tabla de contenido
 Sus encabezados de secciones se utilizarán para hacer referencia a la ubicación del destino.
 
-- [Description](#description)
-- [References](#references)
-- [License](#license)
-- [Author Info](#author-info)
+- [Descripción](#description)
+- [Referencias](#references)
+- [Licencia](#license)
+- [Información del autor](#author-info)
 
 ---
 
-## Description
+## Descripción
 
 Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 
@@ -30,14 +30,14 @@ Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 [Back To The Top](#programacion4-a1)
 
 
-## References
+## Referencias
 
 
 [Back To The Top](#programacion4-a1)
 
 ---
 
-## License
+## Licencia
 
 MIT License
 
@@ -65,7 +65,7 @@ SOFTWARE.
 
 ---
 
-## Author Info
+## Información del autor
 
 - Twitter - [@ThelDaniel23xD](https://twitter.com/ThelDaniel23xD)
 
