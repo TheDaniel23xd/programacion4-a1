@@ -1,7 +1,7 @@
 # programacion4-a1
 Contenido de la cátedra de programación IV-CICLOI-2020
 
-![Project Image](project-image-url)
+![Project Image](img/Captura.PNG)
 
 > This is a ReadMe template to help save you time and effort.
 
