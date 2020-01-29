@@ -9,10 +9,10 @@
 ### Tabla de contenido
 Sus encabezados de secciones se utilizarán para hacer referencia a la ubicación del destino.
 
-- [Descripción](#description)
-- [Referencias](#references)
-- [Licencia](#license)
-- [Información del autor](#author-info)
+- [Descripción](#Descripción)
+- [Referencias](#Referencias)
+- [Licencia](#Licencia)
+- [Información del autor](#Información-del-autor)
 
 ---
 
