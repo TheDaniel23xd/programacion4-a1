@@ -7,19 +7,18 @@
 ---
 
 ### Tabla de contenido
-You're sections headers will be used to reference location of destination.
+Sus encabezados de secciones se utilizarán para hacer referencia a la ubicación del destino.
 
-- [Description](#description)
-- [How To Use](#how-to-use)
-- [References](#references)
-- [License](#license)
-- [Author Info](#author-info)
+- [Description](#descripción)
+- [References](#referencias)
+- [License](#licencia)
+- [Author Info](#información-del-autor)
 
 ---
 
 ## Description
 
-
+Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 
 #### Tecnologías
 
@@ -30,22 +29,6 @@ You're sections headers will be used to reference location of destination.
 
 [Back To The Top](#programacion4-a1)
 
----
-
-## How To Use
-
-#### Installation
-
-
-
-#### API Reference
-
-```html
-    <p>dummy code</p>
-```
-[Back To The Top](#programacion4-a1)
-
----
 
 ## References
 [Back To The Top](#programacion4-a1)
