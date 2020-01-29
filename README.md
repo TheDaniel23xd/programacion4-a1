@@ -27,13 +27,13 @@ Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 - Javascript
 - PHP
 
-[Back To The Top](#programacion4-a1)
+[Volver hacia arriba](#programacion4-a1)
 
 
 ## Referencias
 
 
-[Back To The Top](#programacion4-a1)
+[Volver hacia arriba](#programacion4-a1)
 
 ---
 
@@ -61,7 +61,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Back To The Top](#programacion4-a1)
+[Volver hacia arriba](#programacion4-a1)
 
 ---
 
@@ -69,4 +69,4 @@ SOFTWARE.
 
 - Twitter - [@ThelDaniel23xD](https://twitter.com/ThelDaniel23xD)
 
-[Back To The Top](#programacion4-a1)
+[Volver hacia arriba](#programacion4-a1)
