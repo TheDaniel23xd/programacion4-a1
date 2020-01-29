@@ -1,13 +1,12 @@
 # programacion4-a1
-Contenido de la cátedra de programación IV-CICLOI-2020
 
 ![Project Image](img/Captura.PNG)
 
-> This is a ReadMe template to help save you time and effort.
+> Contenido de la cátedra de programación IV-CICLOI-2020
 
 ---
 
-### Table of Contents
+### Tabla de contenido
 You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
@@ -20,14 +19,16 @@ You're sections headers will be used to reference location of destination.
 
 ## Description
 
-Creating ReadMe's for your Github repository can be tedious.  I hope this template can save you time and effort as well as provide you with some consistency across your projects.
 
-#### Technologies
 
-- Technology 1
-- Technology 2
+#### Tecnologías
 
-[Back To The Top](#read-me-template)
+- HTML
+- css
+- Javascript
+- PHP
+
+[Back To The Top](#programacion4-a1)
 
 ---
 
@@ -42,12 +43,12 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 ```html
     <p>dummy code</p>
 ```
-[Back To The Top](#read-me-template)
+[Back To The Top](#programacion4-a1)
 
 ---
 
 ## References
-[Back To The Top](#read-me-template)
+[Back To The Top](#programacion4-a1)
 
 ---
 
@@ -55,7 +56,7 @@ Creating ReadMe's for your Github repository can be tedious.  I hope this templa
 
 MIT License
 
-Copyright (c) [2017] [James Q Quick]
+Copyright (c) [2020] [TheDaniel23xd]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -75,13 +76,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#programacion4-a1)
 
 ---
 
 ## Author Info
 
-- Twitter - [@jamesqquick](https://twitter.com/jamesqquick)
-- Website - [James Q Quick](https://jamesqquick.com)
+- Twitter - [@ThelDaniel23xD](https://twitter.com/ThelDaniel23xD)
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#programacion4-a1)
