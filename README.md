@@ -33,7 +33,7 @@ Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 ## Referencias
 
 - HTML: básico - [HTMLBASICO](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/HTML_basics)
-- Validar campos de un formulario con HTML5- [Validaciondecampos](#)
+- Validar campos de un formulario con HTML5- [Validaciondecampos](https://www.lawebdelprogramador.com/codigo/HTML/3787-Validar-campos-de-un-formulario-con-HTML5.html)
 
 [Volver hacia arriba](#programacion4-a1)
 
