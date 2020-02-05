@@ -31,9 +31,8 @@ Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 
 ## Referencias
 
-- Seguridad en HTML - [HtmlSecuryty](#)
-- Seguridad en HTML - [HtmlSecuryty](#)
-Seguridad en HTML - [HtmlSecuryty](#)
+- HTML: básico - [HTMLBASICO](https://developer.mozilla.org/es/docs/Learn/Getting_started_with_the_web/HTML_basics)
+- Validar campos de un formulario con HTML5- [Validaciondecampos](#)
 
 [Volver hacia arriba](#programacion4-a1)
 
