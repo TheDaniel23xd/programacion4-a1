@@ -7,7 +7,6 @@
 ---
 
 ### Tabla de contenido
-Sus encabezados de secciones se utilizarán para hacer referencia a la ubicación del destino.
 
 - [Descripción](#Descripción)
 - [Referencias](#Referencias)
