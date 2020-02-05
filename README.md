@@ -28,6 +28,7 @@ Este proyecto se estara realizando a lo largo del ciclo1 2020 de programacion IV
 
 [Volver hacia arriba](#programacion4-a1)
 
+---
 
 ## Referencias
 
