@@ -10,12 +10,12 @@
     <h1>Hola Mundo</h1>
     <p>Bienvenidos a programacion IV</p>
     <form method="post">
-        <input type="text" placeholder="Nombre">
+        <input pattern="[a-zA-ZñÑ]{3,65}" required type="text" placeholder="Nombre">
         <br><br>
-        <textarea cols="30" rows="3">
-            Direccion...
+        <textarea pattern="[\w]{10,150}" required cols="30" rows="3">
+            Dirección...
         </textarea> <br>
-        <input type="date" >
+        <input required type="date" >
         <input type="color" >
         <input type="button" value="Registrar">
         <input type="radio" name="cbo" id="suma">
@@ -27,7 +27,9 @@
         <input type="checkbox" id="js"> <label for="js">JS</label>
         <input type="checkbox" id="json"> <label for="json">JSON</label>
         <input type="checkbox" id="nodejs"> <label for="nodejs">NodeJS</label>
-        
+        <br>
+        <input type="submit" value="Guardar">
+
 </form>
 </body>
 </html>
