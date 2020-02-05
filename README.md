@@ -70,5 +70,6 @@ SOFTWARE.
 ## Información del autor
 
 - Twitter - [@ThelDaniel23xD](https://twitter.com/ThelDaniel23xD)
+- Perfil de github - [TheDaniel23xd](https://github.com/TheDaniel23xd) 
 
 [Volver hacia arriba](#programacion4-a1)
