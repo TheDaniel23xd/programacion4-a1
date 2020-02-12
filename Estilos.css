@@ -13,7 +13,7 @@ body{
 .container>.fila{
     padding: 10px;
     text-align: center;
-    word-wrap: ;
+    word-wrap: break-word;
 
 }
 input, textarea{
