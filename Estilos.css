@@ -8,12 +8,6 @@ body{
     background: aqua;
     padding-top: 52px;
 }
-.center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
 input, textarea{
     height: 24px;
     border: solid 1px rgb(158, 200, 255);
