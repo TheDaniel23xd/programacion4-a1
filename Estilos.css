@@ -1,12 +1,20 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 body{
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     background: aqua;
-    padding-top: 52px;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.container>.fila{
+    padding: 10px;
+    text-align: center;
+    word-wrap: ;
+
 }
 input, textarea{
     height: 24px;
