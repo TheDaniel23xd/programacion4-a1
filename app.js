@@ -2,31 +2,40 @@ document.addEventListener("DOMContentLoaded", (event) =>{
     const formAlumnos = document.querySelector("#frmAlumno");
     formAlumnos.addEventListener("submit", (e)=>{
         e.preventDefault(); 
+
         let codigo = document.querySelector("#txtCodigoAlumno").value,
             nombre = document.querySelector("#txtNombreAlumno").value,
             direccion = document.querySelector("#txtDireccionAlumno").value,
             telefono = document.querySelector("#txtTelefonoAlumno").value;
-        if( 'localStorage' in window ){
-            window.localStorage.setItem("codigo", codigo);
-            window.localStorage.setItem("nombre", nombre);
-            window.localStorage.setItem("direccion", direccion);
-            window.localStorage.setItem("telefono", telefono);
-        } else {
-            alert("almacenamiento en local NO soportado!!! Actualizate!");
+
+            var keycodigo ="codigo"+codigo;
+            var keynombre ="nombre"+nombre;
+            var keydireccion ="direccion"+direccion;
+            var keytelefono ="telefono"+telefono;
+
+        if( 'localStorage' in localStorage ){
+            window.localStorage.setItem(keycodigo, codigo);
+            window.localStorage.setItem(keynombre, nombre);
+            window.localStorage.setItem(keydireccion, direccion);
+            window.localStorage.setItem(keytelefono, telefono);
+        } 
+        else {
+            alert("No se pudo Guardar los datos!!");
         }
     });
-    document.querySelector("#btnRecuperarAlumnos").addEventListener("click",(e)=>{
+    document.querySelector("#btnRecuperarAlumnos").addEventListener("click", (e)=>{
         if( 'localStorage' in window ){
-            document.querySelector("#txtCodigoAlumno").value = 
-                window.localStorage.getItem("codigo");
-            document.querySelector("#txtNombreAlumno").value = 
-                window.localStorage.getItem("nombre");
-            document.querySelector("#txtDireccionAlumno").value = 
-                window.localStorage.getItem("direccion");
-            document.querySelector("#txtTelefonoAlumno").value = 
-                window.localStorage.getItem("telefono");
-        }  else {
-            alert("almacenamiento en local NO soportado!!! Actualizate!");
+            let Codigo=document.querySelector("#txtCodigoAlumno").value;
+            if(codigo !=""){
+                document.querySelector("#txtCodigoAlumno").value = window.localStorage.getItem("codigo"+codigo);
+                document.querySelector("#txtNombreAlumno").value = window.localStorage.getItem("nombre"+codigo);
+                document.querySelector("#txtDireccionAlumno").value =  window.localStorage.getItem("direccion"+codigo);
+                document.querySelector("#txtTelefonoAlumno").value =  window.localStorage.getItem("telefono"+codigo);
+            }else{
+                alert("Agregue el codigo de los datos a recuperar");
+            }
+        } else{
+            alert("No se encuentra los datos solicitados");
         }
     });
 });
