@@ -8,19 +8,19 @@ document.addEventListener("DOMContentLoaded", (event) =>{
             direccion = document.querySelector("#txtDireccionAlumno").value,
             telefono = document.querySelector("#txtTelefonoAlumno").value;
 
-            var keycodigo ="codigo"+codigo;
-            var keynombre ="nombre"+nombre;
-            var keydireccion ="direccion"+direccion;
-            var keytelefono ="telefono"+telefono;
+            var keyCodigo = "codigo"+codigo;
+            var keyNombre = "nombre"+nombre;
+            var keyDireccion = "direccion"+direccion;
+            var keyTelefono = "telefono"+telefono;
 
         if( 'localStorage' in localStorage ){
-            window.localStorage.setItem(keycodigo, codigo);
-            window.localStorage.setItem(keynombre, nombre);
-            window.localStorage.setItem(keydireccion, direccion);
-            window.localStorage.setItem(keytelefono, telefono);
+            window.localStorage.setItem(keyCodigo, codigo);
+            window.localStorage.setItem(keyNombre, nombre);
+            window.localStorage.setItem(keyDireccion, direccion);
+            window.localStorage.setItem(keyTelefono, telefono);
         } 
         else {
-            alert("No se pudo Guardar los datos!!");
+            alert("almacenamiento en local NO soportado!!! Actualizate!");
         }
     });
     document.querySelector("#btnRecuperarAlumnos").addEventListener("click", (e)=>{
