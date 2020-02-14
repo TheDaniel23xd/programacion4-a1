@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", (event) =>{
                 icon: 'error',
                 title: 'Oops...',
                 text: '¡Algo salió mal!',
+                timer:7000,
+                timerProgressBar:true,
                 footer: 'almacenamiento en local NO soportado!!! Actualizate!'
               })
         }
