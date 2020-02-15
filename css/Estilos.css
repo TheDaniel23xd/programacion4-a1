@@ -1,67 +1,64 @@
-body{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    
-    background-color: #4bcffa;
-    
-}
-.formulario{
-    background-color: #f5f6fa;
-    border-radius: 3px;
-    color: black;
-    font-size: 0.8em;
-    padding: 20px;
-    margin: 0 auto;
-    width: 300px;
-}
-.titulo{
-    text-align: center;
-}
-input{
-    border: 0;
-    outline: none;
+body {
+  margin-top: 100px;
+  margin-bottom: 100px;
 
-    width: 280px;
+  background-color: #4bcffa;
 }
+.formulario {
+  background-color: #f5f6fa;
+  border-radius: 3px;
+  color: black;
+  font-size: 0.8em;
+  padding: 20px;
+  margin: 0 auto;
+  width: 300px;
+}
+.titulo {
+  text-align: center;
+}
+input {
+  border: 0;
+  outline: none;
 
-.field{
-    border: solid 1px #ccc;
-    padding: 10px;
-
-    
+  width: 280px;
 }
 
-.field:focus{
-    border-color: #18A383;
+.field {
+  border: solid 1px #ccc;
+  padding: 10px;
 }
 
-.center-content{
-    text-align: center;
+.field:focus {
+  border-color: #18a383;
 }
 
-input{
-    height: 24px;
-    border: solid 1px rgb(158, 200, 255);
-    border-radius: 5px;
+.center-content {
+  text-align: center;
 }
 
-input[type=submit], 
-input[type=button]{
-    background-color: rgb(74, 137, 255);
-    color: #FFF;
-    text-transform: uppercase;
-    height: 30px;
-    width: auto;
-    font-weight: bolder;
+input {
+  height: 24px;
+  border: solid 1px rgb(158, 200, 255);
+  border-radius: 5px;
 }
-input[type=submit]:hover, 
-input[type=button]:hover{
-    background-color: #FFF;
-    color: blue;
+
+input[type="submit"],
+input[type="button"] {
+  background-color: rgb(74, 137, 255);
+  color: #fff;
+  text-transform: uppercase;
+  height: 30px;
+  width: auto;
+  font-weight: bolder;
 }
-input[type=text]:valid{
-    background-color: rgb(156, 253, 177);
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #fff;
+  color: blue;
 }
-input[type=text]:invalid{
-    background-color: rgb(255, 172, 172);
+input[type="text"]:valid {
+  background-color: rgb(156, 253, 177);
+}
+input[type="text"]:invalid {
+  background-color: rgb(255, 172, 172);
 }

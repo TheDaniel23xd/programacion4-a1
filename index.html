@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/Estilos.css">
-    <link rel="shortcut icon" href="/img/icono.ico" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/css/Estilos.css" />
+    <link rel="shortcut icon" href="/img/icono.ico" type="image/x-icon" />
     <title>App alumnos offline</title>
-</head>
-<body>
-        
+  </head>
+  <body>
     <form class="formulario" id="frmAlumno">
-         <h2><p class="titulo">App alumnos offline</p></h2>
-        <p>Codigo:</p>
-        <input pattern="^[A-Za-z]{4}[0-9]{6}" required type="text" class="field" placeholder="Codigo" id="txtCodigoAlumno"> <br/>
-    
-        <p>Nombre:</p>
-        <input pattern="[A-Za-zñÑ]{3,65}" title="El nombre de usuario solo debe contener letras minúsculas. p.ej. John" required type="text" class="field" placeholder="Nombre" id="txtNombreAlumno"> <br/>
-    
-        <p>Direccion:</p>
-        <input required type="text" placeholder="Direccion" class="field" id="txtDireccionAlumno"> <br/>
-    
-        <p>Telefono:</p>
-        <input pattern="^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$" required type="text" class="field" placeholder="Telefono" id="txtTelefonoAlumno"> <br/>
-    
-        <p class="center-content">
-            <input type="submit" class="btn btn-green" value="Guardar" id="txtGuardarAlumno">
-            <input type="button" value="Recuperar" id="btnRecuperarAlumnos">
-        </p>
-        
+      <h2><p class="titulo">App alumnos offline</p></h2>
+      <p>Codigo:</p>
+      <input
+        pattern="^[A-Za-z]{4}[0-9]{6}"
+        required
+        type="text"
+        class="field"
+        placeholder="Codigo"
+        id="txtCodigoAlumno"
+      />
+      <br />
+
+      <p>Nombre:</p>
+      <input
+        pattern="[A-Za-zñÑ]{3,65}"
+        title="El nombre de usuario solo debe contener letras minúsculas. p.ej. John"
+        required
+        type="text"
+        class="field"
+        placeholder="Nombre"
+        id="txtNombreAlumno"
+      />
+      <br />
+
+      <p>Direccion:</p>
+      <input
+        required
+        type="text"
+        placeholder="Direccion"
+        class="field"
+        id="txtDireccionAlumno"
+      />
+      <br />
+
+      <p>Telefono:</p>
+      <input
+        pattern="^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$"
+        required
+        type="text"
+        class="field"
+        placeholder="Telefono"
+        id="txtTelefonoAlumno"
+      />
+      <br />
+
+      <p class="center-content">
+        <input
+          type="submit"
+          class="btn btn-green"
+          value="Guardar"
+          id="txtGuardarAlumno"
+        />
+        <input type="button" value="Recuperar" id="btnRecuperarAlumnos" />
+      </p>
     </form>
-        <script src="/js/app.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-</body>
+    <script src="/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  </body>
 </html>
