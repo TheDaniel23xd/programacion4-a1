@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", (event) =>{
     const formAlumnos = document.querySelector("#frmAlumno");
     formAlumnos.addEventListener("submit", (e)=>{
         e.preventDefault(); 
-
         let codigo = document.querySelector("#txtCodigoAlumno").value,
             nombre = document.querySelector("#txtNombreAlumno").value,
             direccion = document.querySelector("#txtDireccionAlumno").value,
@@ -13,13 +12,12 @@ document.addEventListener("DOMContentLoaded", (event) =>{
             var keyDireccion = "direccion"+""+direccion;
             var keyTelefono = "telefono"+""+telefono;
 
-        if( 'localStorage' in localStorage ){
+        if( 'localStorage' in window ){
             window.localStorage.setItem(keyCodigo, codigo);
             window.localStorage.setItem(keyNombre, nombre);
             window.localStorage.setItem(keyDireccion, direccion);
             window.localStorage.setItem(keyTelefono, telefono);
-        } 
-        else {
+        } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -30,20 +28,18 @@ document.addEventListener("DOMContentLoaded", (event) =>{
               })
         }
     });
-    document.querySelector("#btnRecuperarAlumnos").addEventListener("click", (e)=>{
+    document.querySelector("#btnRecuperarAlumnos").addEventListener("click",(e)=>{
         if( 'localStorage' in window ){
-            let Codigo=document.querySelector("#txtCodigoAlumno").value;
-            if(codigo !=""){
-                document.querySelector("#txtCodigoAlumno").value = window.localStorage.getItem("codigo"+codigo);
-                document.querySelector("#txtNombreAlumno").value = window.localStorage.getItem("nombre"+codigo);
-                document.querySelector("#txtDireccionAlumno").value =  window.localStorage.getItem("direccion"+codigo);
-                document.querySelector("#txtTelefonoAlumno").value =  window.localStorage.getItem("telefono"+codigo);
-            }else{
-                Swal.fire('Agregue el codigo de los datos a recuperar')
-            }
-        } else{
-            
-            Swal.fire('No se encuentra los datos solicitados')
+            document.querySelector("#txtCodigoAlumno").value = 
+                window.localStorage.getItem("codigo");
+            document.querySelector("#txtNombreAlumno").value = 
+                window.localStorage.getItem("nombre");
+            document.querySelector("#txtDireccionAlumno").value = 
+                window.localStorage.getItem("direccion");
+            document.querySelector("#txtTelefonoAlumno").value = 
+                window.localStorage.getItem("telefono");
+        }  else {
+            alert("almacenamiento en local NO soportado!!! Actualizate!");
         }
     });
 });

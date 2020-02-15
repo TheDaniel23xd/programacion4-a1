@@ -1,5 +1,5 @@
 
-form{
+.formulario{
     background-color: white;
     border-radius: 3px;
     color: #999;
@@ -9,7 +9,7 @@ form{
     width: 300px;
 }
 
-input, textarea{
+input{
     border: 0;
     outline: none;
 
