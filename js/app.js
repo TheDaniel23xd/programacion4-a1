@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", event => {
       window.localStorage.setItem(keyNombre, nombre);
       window.localStorage.setItem(keyDireccion, direccion);
       window.localStorage.setItem(keyTelefono, telefono);
+      Swal.fire({
+        icon: "success",
+        text: "Registro completado!",
+        timer: 7000,
+        timerProgressBar: true,
+      });
     } else {
       Swal.fire({
         icon: "error",
