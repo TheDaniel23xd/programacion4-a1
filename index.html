@@ -9,7 +9,61 @@
     <title>Conversores</title>
   </head>
   <body>
-    
+    <form method="post" id="frmConversores">
+      <div class="container">
+          <div class="row row-cols-2">
+              <div class="col text-center bg-info text-white">
+                  APP CONVERSORES
+              </div>
+          </div>
+          <div class="row row-cols-4 p-2">
+              <div class="col">
+                  DE:
+                  <select id="cboDe" class="form-control">
+                      <option value="dolar">Dolar</option>
+                      <option value="euro">Euro</option>
+                      <option value="quetzal">Quetzales</option>
+                      <option value="lempira">Lempiras</option>
+                      <option value="cordoba">Cordobas</option>
+                  </select>
+              </div>
+              <div class="col">
+                  A:
+                  <select id="cboA" class="form-control">
+                      <option value="dolar">Dolar</option>
+                      <option value="euro">Euro</option>
+                      <option value="quetzal">Quetzales</option>
+                      <option value="lempira">Lempiras</option>
+                      <option value="cordoba">Cordobas</option>
+                  </select>
+              </div>
+              <div class="col">
+                A:
+                <select id="cboA" class="form-control">
+                    <option value="dolar">Dolar</option>
+                    <option value="euro">Euro</option>
+                    <option value="quetzal">Quetzales</option>
+                    <option value="lempira">Lempiras</option>
+                    <option value="cordoba">Cordobas</option>
+                </select>
+            </div>
+          </div>
+          <div class="row row-cols-4 p-2">
+              <div class="col text-center">
+                  <input type="text" required="required" pattern="[0-9.]{1,}" placeholder="Cantidad" id="txtCantidadConversor" class="form-control">
+              </div>
+              <div class="col text-center">
+                  <p class="bg-success text-white" id="lblRespuesta">Respuesta: ?</p>
+              </div>
+          </div>
+          <div class="row row-cols-2 p-2">
+              <div class="col text-center">
+                  <input type="submit" id="btnConvertir" value="Convertir" class="btn btn-primary">
+              </div>
+          </div>
+      </div>
+  </form>
+    <script src="js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   </body>
 </html>
