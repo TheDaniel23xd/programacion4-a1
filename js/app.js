@@ -25,7 +25,29 @@ document.addEventListener("DOMContentLoaded", e=>{
           "lempira":24.9,
           "cordoba":34.19
       };
+      let longitud = {
+        "metro":1,
+        "centimetro":0.93,
+        "kilometro":7.63,
+        "milla":24.9,
+        "yarda":34.19
+    };
+    let masa = {
+        "kilogramo":1,
+        "gramo":0.93,
+        "libra":7.63,
+        "onza":24.9,
+        "miligramo":34.19
+    };
+    let datos = {
+        "byte":8,
+        "megabyte":1024,
+        "gigabit":7.63,
+        "kilobyte":1024,
+        "terabyte":34.19
+    };
       let $res = document.querySelector("#lblRespuesta");
       $res.innerHTML = `Respuesta: ${ (monedas[a]/monedas[de]*cantidad).toFixed(2) }`;
   });
 });
+
