@@ -8,7 +8,27 @@
     <title>Ajax</title>
 </head>
 <body>
-    
+   <form action="" method="get" id="frmSaludo">
+
+<div class="container">
+    <div class="row row-cols-4 p-2">
+        <div class="col text-center bg-success text-white">Saludos con ajax</div>
+    </div>
+    <div class="row row-cols-4 p-2">
+        <div class="col text-center">
+            <input id="txtNombre" class="form-control" type="text" placeholder="Nombre" required="required">
+        </div>
+        <div class="col text-center">
+            <span class="text-center bg-primary text-white" id="lblSaludo">Saludos...</span>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        <div class="col text-center">
+            <input type="submit" value="Saludar" class="btn btn-primary">
+        </div>
+    </div>
+</div>
+   </form>
     <script src="/js/app.js"></script>
 </body>
 </html>
