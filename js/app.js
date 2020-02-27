@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", e=>{
   form.addEventListener("submit", event=>{
       event.preventDefault();
 
-  let nombre=document.querySelector("#txtNombre").value;
-  fetch(`saludo.php?name=${nombre}`)
-  .then(resp=>resp.text())
-  .then(respuestas=>{
-    document.querySelector("#lblSaludo").innerHTML=respuestas;
-  }) 
+     let nombre = document.querySelector("#txtNombre").value;
+     fetch(`saludo.php?name=${nombre}`)
+          .then(resp=>resp.text())
+          .then(respuesta=>{
+              document.querySelector("#lblSaludo").innerHTML = respuesta;
+          });
   });
 });
