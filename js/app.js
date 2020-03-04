@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", e=>{
   
         let monedas = {
             "dolar":1,
-            "colones(SV) ":8.75000,
+            "colones(SV)":8.75000,
             "Yenes":111.27,
             "Rupia":69.75,
             "Peso(MX)":19.36,
