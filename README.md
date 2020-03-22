@@ -1,6 +1,6 @@
 # programacion4-a1
 
-![Project Image](img/Conversor.PNG)
+![Project Image](img/p.PNG)
 
 > Contenido de la cátedra de programación IV-CICLOI-2020
 
