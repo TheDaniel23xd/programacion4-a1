@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded",event=>{
 
         let modulo = e.target.dataset.modulo;
         console.log(modulo);
-        fetch('/Public/Vistas/Alumnos/alumnos.html').then( resp=>resp.text() ).then(resp=>{
+        fetch('Public/Vistas/Alumnos/alumnos.html').then( resp=>resp.text() ).then(resp=>{
             $(`#vista-${modulo}`).innerHTML = resp;
           
             
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded",event=>{
 
             let cuerpo = $("body"),
                 script = document.createElement("script");
-            script.src = `/Public/Vistas/Alumnos/${modulo}.js`;
+            script.src = `Public/Vistas/Alumnos/${modulo}.js`;
             cuerpo.appendChild(script);
         });
        
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded",event=>{
         e.stopPropagation();
         let modulo = e.target.dataset.modulo;
         console.log(modulo);
-        fetch('/Public/Vistas/Profesores/profesores.html').then( resp=>resp.text() ).then(resp=>{
+        fetch('Public/Vistas/Profesores/profesores.html').then( resp=>resp.text() ).then(resp=>{
             $(`#vista-${modulo}`).innerHTML = resp;
           
             
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded",event=>{
 
             let cuerpo = $("body"),
                 script = document.createElement("script");
-            script.src = `/Public/Vistas/Profesores/${modulo}.js`;
+            script.src = `Public/Vistas/Profesores/${modulo}.js`;
             cuerpo.appendChild(script);
         });
 

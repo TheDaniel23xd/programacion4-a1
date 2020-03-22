@@ -13,7 +13,7 @@ frmAlumnos.addEventListener("submit",e=>{
         direccion : $("#txtDireccionAlumno").value,
         telefono  : $("#txtTelefonoAlumno").value
     };
-    fetch(`/private/Modulos/alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(alumno)}`).then( resp=>resp.json()).then(resp=>{
+    fetch(`Private/Modulos/Alumnos/procesos.php?proceso=recibirDatos&alumno=${JSON.stringify(alumno)}`).then( resp=>resp.json()).then(resp=>{
         console.log(alumno);
       $("#respuestaAlumno").innerHTML = `<div class="alert alert-success" role="alert">${resp.msg}</div> `;
     });

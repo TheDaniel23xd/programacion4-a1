@@ -11,7 +11,7 @@ var $ = el => document.querySelector(el),
         direccion : $("#txtDireccionDocente").value,
         telefono  : $("#txtTelefonoDocente").value
     };
-    fetch(`/private/Modulos/docentes/procesosD.php?proceso=recibirDatos&docentes=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
+    fetch(`Private/Modulos/Profesores/procesosP.php?proceso=recibirDatos&docentes=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
         $("#respuestaDocente").innerHTML = `
             <div class="alert alert-success" role="alert">
                 ${resp.msg}
