@@ -1,4 +1,4 @@
-# programacion4-a1
+# App Academica
 
 ![Project Image](img/P.PNG)
 
