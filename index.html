@@ -4,34 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="Estilos.css">
-    <title>Bienvenido a programacion IV</title>
+    <!--css-->
+    <link rel="stylesheet" href="public/estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>APP ACADEMICA</title>
 </head>
-<body>
-    <div class="center">
-        <h1>Hola Mundo!</h1>
-        <p>Bienvenidos a programacion IV</p>
-        <form method="post">
-            <input pattern="[a-zA-ZñÑ]{3,65}" required type="text" placeholder="Nombre">
-            <br><br>
-            <textarea pattern="[\w]{10,150}" required cols="30" rows="3">
-                Dirección...
-            </textarea> <br>
-            <input required type="date" >
-            <input type="color" >
-            <input type="button" value="Registrar">
-            <input type="radio" name="cbo" id="suma">
-            <input type="radio" name="cbo" id="Resta">
-            <input type="radio" name="cbo" id="Multi">
-            <input type="radio" name="cbo" id="Division">
-            <br>
-            <input type="checkbox" id="php"> <label for="php">PHP</label for="">
-            <input type="checkbox" id="js"> <label for="js">JS</label>
-            <input type="checkbox" id="json"> <label for="json">JSON</label>
-            <input type="checkbox" id="nodejs"> <label for="nodejs">NodeJS</label>
-            <br>
-            <input type="submit" value="Guardar">
-         </form>
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">::.. APP ..::</a>
+       
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mostrar-alumnos" data-modulo="alumnos" data-form="alumnos" href="#">Alumnos</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link mostrar-docentes" data-modulo="docentes" data-form="docentes" href="#">Docentes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mostrar-materias" data-modulo="materias" href="#">Materias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">Matricula</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">Inscripcion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mostrar-notas" data-modulo="notas" href="#">Notas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="modulos" id="vista-alumnos"></div>
+        <div class="modulos" id="vista-buscar-alumnos"></div>
+        <div class="modulos" id="vista-docentes"></div>
+        <div class="modulos" id="vista-buscar-docentes"></div>
+        <div class="modulos" id="vista-materias"></div>
+        <div class="modulos" id="vista-matricula"></div>
+        <div class="modulos" id="vista-inscripcion"></div>
+        <div class="modulos" id="vista-notas"></div>
     </div>
+    <!--js-->
+    <script type="module" src="public/js/app.js"></script>
+</form>
 </body>
 </html>
