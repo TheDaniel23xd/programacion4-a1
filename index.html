@@ -5,52 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--css-->
-    <link rel="stylesheet" href="public/estilos.css">
+    <link rel="stylesheet" href="public/css/estilos.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>APP ACADEMICA</title>
 </head>
 <body class="bg-secondary">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">::.. APP ..::</a>
-       
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">INICIO <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-alumnos" data-modulo="alumnos" data-form="alumnos" href="#">Alumnos</a>
-                </li> 
-                <li class="nav-item">
-                    <a class="nav-link mostrar-docentes" data-modulo="docentes" data-form="docentes" href="#">Docentes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-materias" data-modulo="materias" href="#">Materias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">Matricula</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">Inscripcion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mostrar-notas" data-modulo="notas" href="#">Notas</a>
-                </li>
-            </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link mostrar-alumnos" data-modulo="alumnos" data-form="alumnos" href="#">Alumnos</a>
+            <a class="nav-link mostrar-docentes" data-modulo="docentes" data-form="docentes" href="#">Docentes</a>
+            <a class="nav-link mostrar-materias" data-modulo="materias" data-form="materias"  href="#">Materias</a>
+            <a class="nav-link mostrar-matricula" data-modulo="matricula" href="#">Matricula</a>
+            <a class="nav-link mostrar-inscripcion" data-modulo="inscripcion" href="#">Inscripcion</a>
+            <a class="nav-link mostrar-notas" data-modulo="notas" href="#">Notas</a>
+          </div>
         </div>
-    </nav>
+      </nav>
     <div class="container">
         <div class="modulos" id="vista-alumnos"></div>
         <div class="modulos" id="vista-buscar-alumnos"></div>
         <div class="modulos" id="vista-docentes"></div>
         <div class="modulos" id="vista-buscar-docentes"></div>
         <div class="modulos" id="vista-materias"></div>
+        <div class="modulos" id="vista-buscar-materias"></div>
         <div class="modulos" id="vista-matricula"></div>
         <div class="modulos" id="vista-inscripcion"></div>
         <div class="modulos" id="vista-notas"></div>
     </div>
-    <!--js-->
+    <!--js librerias-->
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="public/js/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="module" src="public/js/app.js"></script>
+
+    
 </form>
 </body>
 </html>

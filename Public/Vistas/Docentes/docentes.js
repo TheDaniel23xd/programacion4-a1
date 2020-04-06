@@ -1,28 +1,30 @@
-export function modulo(){
-    var $ = el => document.querySelector(el),
-        frmDocentes = $("#frm-docentes");
-    frmDocentes.addEventListener("submit",e=>{
-        e.preventDefault();
-        e.stopPropagation();
-        
-        let docentes = {
-            accion    : frmDocentes.dataset.accion,
-            idDocente  : frmDocentes.dataset.iddocente,
-            codigo    : $("#txtCodigoDocente").value,
-            nombre    : $("#txtNombreDocente").value,
-            direccion : $("#txtDireccionDocente").value,
-            telefono  : $("#txtTelefonoDocente").value
-        };
-        fetch(`private/Modulos/docentes/procesosD.php?proceso=recibirDatos&docente=${JSON.stringify(docentes)}`).then( resp=>resp.json() ).then(resp=>{
-            $("#respuestaDocente").innerHTML = `
-                <div class="alert alert-success" role="alert">
-                    ${resp.msg}
-                </div>
-            `;
-        });
-    });
-    frmDocentes.addEventListener("reset",e=>{
-        $("#frm-docentes").dataset.accion = 'nuevo';
-        $("#frm-docentes").dataset.iddocente = '';
-    });
-}
+var appdocente = new Vue({
+    el:'#frm-docente',
+    data:{
+        docente:{
+            idDocente  : 0,
+            accion    : 'nuevo',
+            codigo    : '',
+            nombre    : '',
+            direccion : '',
+            telefono  : '',
+            nit       : '',
+            msg       : ''
+        }
+    },
+    methods:{
+        guardarDocente:function(){
+            fetch(`Private/Modulos/docentes/procesosdocente.php?proceso=recibirDatos&docente=${JSON.stringify(this.docente)}`).then( resp=>resp.json() ).then(resp=>{
+                this.docente.msg = resp.msg;
+                this.docente.idDocente = 0;
+                this.docente.codigo = '';
+                this.docente.nombre = '';
+                this.docente.direccion = '';
+                this.docente.telefono = '';
+                this.docente.nit='';
+                this.docente.accion = 'nuevo';
+                
+            });
+        }
+    }
+});

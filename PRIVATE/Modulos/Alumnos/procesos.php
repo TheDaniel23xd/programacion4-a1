@@ -1,77 +1,77 @@
-<?php 
-include('../../Config/Config.php');
-$alumno = new alumno($Conexion);
+<? php 
+include ( '../../Config/Config.php' );
+$ alumno = nuevo alumno ( $ Conexion );
 
-$proceso = '';
-if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
-	$proceso = $_GET['proceso'];
+$ proceso = '' ;
+if ( isset ( $ _GET [ 'proceso' ]) && strlen ( $ _GET [ 'proceso' ])> 0 ) {
+	$ proceso = $ _GET [ 'proceso' ];
 }
-$alumno->$proceso( $_GET['alumno'] );
-print_r(json_encode($alumno->respuesta));
+$ alumno -> $ proceso ( $ _GET [ 'alumno' ]);
+print_r ( json_encode ( $ alumno -> respuesta ));
 
-class alumno{
-    private $datos = array(), $db;
-    public $respuesta = ['msg'=>'correcto'];
+clase alumno {
+    privado  $ datos = array (), $ db ;
+    public  $ respuesta = [ 'msg' => 'correcto' ];
     
-    public function __construct($db){
-        $this->db=$db;
+     función  pública __construct ( $ db ) {
+        $ this -> db = $ db ;
     }
-    public function recibirDatos($alumno){
-        $this->datos = json_decode($alumno, true);
-        $this->validar_datos();
+     función  pública recibirDatos ( $ alumno ) {
+        $ this -> datos = json_decode ( $ alumno , verdadero );
+        $ this -> validar_datos ();
     }
-    private function validar_datos(){
-        if( empty($this->datos['codigo']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el codigo del estudiante';
+     función  privada validar_datos () {
+        if ( empty ( $ this -> datos [ 'codigo' ])) {
+            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el codigo del estudiante' ;
         }
-        if( empty($this->datos['nombre']) ){
-            $this->respuesta['msg'] = 'por favor ingrese el nombre del estudiante';
+        if ( empty ( $ this -> datos [ 'nombre' ])) {
+            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el nombre del estudiante' ;
         }
-        if( empty($this->datos['direccion']) ){
-            $this->respuesta['msg'] = 'por favor ingrese la direccion del estudiante';
+        if ( empty ( $ this -> datos [ 'direccion' ])) {
+            $ this -> respuesta [ 'msg' ] = 'por favor ingrese la direccion del estudiante' ;
         }
-        $this->almacenar_alumno();
+        $ this -> almacen_alumno ();
     }
-    private function almacenar_alumno(){
-        if( $this->respuesta['msg']==='correcto' ){
-            if( $this->datos['accion']==='nuevo' ){
-                $this->db->consultas('
-                    INSERT INTO alumnos (codigo,nombre,direccion,telefono) VALUES(
-                        "'. $this->datos['codigo'] .'",
-                        "'. $this->datos['nombre'] .'",
-                        "'. $this->datos['direccion'] .'",
-                        "'. $this->datos['telefono'] .'"
+     función  privada almacena_alumno () {
+        if ( $ this -> respuesta [ 'msg' ] === 'correcto' ) {
+            if ( $ this -> datos [ 'accion' ] === 'nuevo' ) {
+                $ this -> db -> consultas ( '
+                    INSERTAR EN LOS ALUMNOS (codigo, nombre, direccion, telefono) VALORES (
+                        "' . $ this -> datos [ ' codigo ' ]. '",
+                        "' . $ this -> datos [ ' nombre ' ]. '",
+                        "' . $ this -> datos [ ' direccion ' ]. '",
+                        "' . $ this -> datos [ ' telefono ' ]. '"
                     )
-                ');
-                $this->respuesta['msg'] = 'Registro insertado correctamente';
-            } else if( $this->datos['accion']==='modificar' ){
-                $this->db->consultas('
-                   UPDATE alumnos SET
-                        codigo     = "'. $this->datos['codigo'] .'",
-                        nombre     = "'. $this->datos['nombre'] .'",
-                        direccion  = "'. $this->datos['direccion'] .'",
-                        telefono   = "'. $this->datos['telefono'] .'"
-                    WHERE idAlumno = "'. $this->datos['idAlumno'] .'"
-                ');
-                $this->respuesta['msg'] = 'Registro actualizado correctamente';
+                ' );
+                $ this -> respuesta [ 'msg' ] = 'Registro insertado correctamente' ;
+            } else  if ( $ this -> datos [ 'accion' ] === 'modificar' ) {
+                $ this -> db -> consultas ( '
+                   ACTUALIZAR conjunto de alumnos
+                        codigo = "' . $ this -> datos [ ' codigo ' ]. '",
+                        nombre = "' . $ this -> datos [ ' nombre ' ]. '",
+                        direccion = "' . $ this -> datos [ ' direccion ' ]. '",
+                        telefono = "' . $ this -> datos [ ' telefono ' ]. '"
+                    DONDE idAlumno = " ' $ este -> Datos [ 'idAlumno' ]. '"
+                ' );
+                $ this -> respuesta [ 'msg' ] = 'Registro actualizado correctamente' ;
             }
         }
     }
-    public function buscarAlumno($valor=''){
-        $this->db->consultas('
-            select alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
-            from alumnos
-            where alumnos.codigo like "%'.$valor.'%" or alumnos.nombre like "%'.$valor.'%"
-        ');
-        return $this->respuesta = $this->db->obtener_datos();
+     función  pública buscarAlumno ( $ valor = '' ) {
+        $ this -> db -> consultas ( '
+            seleccione alumnos.idAlumno, alumnos.codigo, alumnos.nombre, alumnos.direccion, alumnos.telefono
+            de alumnos
+            donde alumnos.codigo como "% ' . $ valor . '%" o alumnos.nombre como "% ' . $ valor . '%" o alumnos.telefono como "% ' . $ valor . '%"
+        ' );
+        devuelve  $ this -> respuesta = $ this -> db -> obtener_datos ();
     }
-    public function eliminarAlumno($idAlumno=''){
-        $this->db->consultas('
-            delete alumnos
-            from alumnos
-            where alumnos.idAlumno = "'.$idAlumno.'"
-        ');
-        $this->respuesta['msg'] = 'Registro eliminado correctamente';
+     función  pública eliminarAlumno ( $ idAlumno = '' ) {
+        $ this -> db -> consultas ( '
+            eliminar alumnos
+            de alumnos
+            donde alumnos.idAlumno = "' . $ idAlumno . '"
+        ' );
+        $ this -> respuesta [ 'msg' ] = 'Registro eliminado correctamente' ;
     }
 }
 ?>

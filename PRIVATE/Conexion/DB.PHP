@@ -1,4 +1,3 @@
-  
 <?php
 class Conexion{
     private $Conexion='', $result='';
