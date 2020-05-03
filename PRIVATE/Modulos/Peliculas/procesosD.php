@@ -1,85 +1,80 @@
-<? php 
-include ( '../../Config/Config.php' );
-$ docente = nuevo docente ( $ Conexion );
+<?php 
+include('../../Config/Config.php');
+$pelicula = new pelicula($Conexion);
 
-$ proceso = '' ;
-if ( isset ( $ _GET [ 'proceso' ]) && strlen ( $ _GET [ 'proceso' ])> 0 ) {
-	$ proceso = $ _GET [ 'proceso' ];
+$proceso = '';
+if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
+	$proceso = $_GET['proceso'];
 }
-$ docente -> $ proceso ( $ _GET [ 'docente' ]);
-print_r ( json_encode ( $ docente -> respuesta ));
+$pelicula->$proceso( $_GET['pelicula'] );
+print_r(json_encode($pelicula->respuesta));
 
-clase docente {
-    privado  $ datos = array (), $ db ;
-    public  $ respuesta = [ 'msg' => 'correcto' ];
+class pelicula{
+    private $datos = array(), $db;
+    public $respuesta = ['msg'=>'correcto'];
     
-     función  pública __construct ( $ db ) {
-        $ this -> db = $ db ;
+    public function __construct($db){
+        $this->db=$db;
     }
-     función  pública recibirDatos ( $ docente ) {
-        $ this -> datos = json_decode ( $ docente , verdadero );
-        $ this -> validar_datos ();
+    public function recibirDatos($pelicula){
+        $this->datos = json_decode($pelicula, true);
+        $this->validar_datos();
     }
-     función  privada validar_datos () {
-        if ( empty ( $ this -> datos [ 'codigo' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el codigo del Docente' ;
+    private function validar_datos(){
+        if( empty($this->datos['descripcion']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la descripcion de la pelicula';
         }
-        if ( empty ( $ this -> datos [ 'nombre' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el nombre del Docente' ;
+        if( empty($this->datos['sinopsis']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la sinopsis de la pelicula';
         }
-        if ( empty ( $ this -> datos [ 'direccion' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese la direccion del Docente' ;
+        if( empty($this->datos['genero']) ){
+            $this->respuesta['msg'] = 'por favor ingrese el genero de la pelicula';
+		}
+		if( empty($this->datos['duracion']) ){
+            $this->respuesta['msg'] = 'por favor ingrese la duracion de la pelicula';
         }
-       
-        $ this -> almacen_docente ();
+        $this->almacenar_pelicula();
     }
-     función  privada almacena_docente () {
-        if ( $ this -> respuesta [ 'msg' ] === 'correcto' ) {
-            if ( $ this -> datos [ 'accion' ] === 'nuevo' ) {
-                $ this -> db -> consultas ( '
-                    INSERTAR EN docentes (codigo, nombre, direccion, telefono, nit) VALORES (
-                        "' . $ this -> datos [ ' codigo ' ]. '",
-                        "' . $ this -> datos [ ' nombre ' ]. '",
-                        "' . $ this -> datos [ ' direccion ' ]. '",
-                        "' . $ this -> datos [ ' telefono ' ]. '",
-                        "' . $ this -> datos [ ' nit ' ]. '"
+    private function almacenar_pelicula(){
+        if( $this->respuesta['msg']==='correcto' ){
+            if( $this->datos['accion']==='nuevo' ){
+                $this->db->consultas('
+                    INSERT INTO peliculas (descripcion,sinopsis,genero,duracion) VALUES(
+                        "'. $this->datos['descripcion'] .'",
+                        "'. $this->datos['sinopsis'] .'",
+                        "'. $this->datos['genero'] .'",
+                        "'. $this->datos['duracion'] .'"
                     )
-                ' );
-                $ this -> respuesta [ 'msg' ] = 'Registro insertado correctamente' ;
-            } else  if ( $ this -> datos [ 'accion' ] === 'modificar' ) {
-                $ this -> db -> consultas ( '
-                   ACTUALIZAR docentes SET
-                        codigo = "' . $ this -> datos [ ' codigo ' ]. '",
-                        nombre = "' . $ this -> datos [ ' nombre ' ]. '",
-                        direccion = "' . $ this -> datos [ ' direccion ' ]. '",
-                        telefono = "' . $ this -> datos [ ' telefono ' ]. '",
-                         nit = "' . $ this -> datos [ ' nit ' ]. '"
-                    DONDE idDocente = " ' $ este -> Datos [ 'idDocente' ]. '"
-                ' );
-                $ this -> respuesta [ 'msg' ] = 'Registro actualizado correctamente' ;
+                ');
+                $this->respuesta['msg'] = 'Registro insertado correctamente';
+            } else if( $this->datos['accion']==='modificar' ){
+                $this->db->consultas('
+                   UPDATE peliculas SET
+                        descripcion      = "'. $this->datos['descripcion'] .'",
+                        sinopsis         = "'. $this->datos['sinopsis'] .'",
+                        genero           = "'. $this->datos['genero'] .'",
+                        duracion         = "'. $this->datos['duracion'] .'"
+                    WHERE idpelicula     = "'. $this->datos['idpelicula'] .'"
+                ');
+                $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
     }
-     función  pública buscarDocente ( $ valor = '' ) {
-        $ this -> db -> consultas ( '
-            seleccione docentes.idDocente, docentes.codigo, docentes.nombre, docentes.direccion, docentes.telefono, docentes.nit
-            de docentes
-            donde docentes.codigo como "% ' . $ valor . '%" o docentes.nombre como "% ' . $ valor . '%" o docentes.nit como "% ' . $ valor . '%"
-        ' );
-        devuelve  $ this -> respuesta = $ this -> db -> obtener_datos ();
+    public function buscarpelicula($valor=''){
+        $this->db->consultas('
+            select peliculas.idpelicula, peliculas.descripcion, peliculas.sinopsis, peliculas.genero, peliculas.duracion
+            from peliculas
+            where peliculas.descripcion like "%'.$valor.'%" or peliculas.duracion like "%'.$valor.'%" or peliculas.genero like "%'.$valor.'%"
+        ');
+        return $this->respuesta = $this->db->obtener_datos();
     }
-     función  pública eliminarDocente ( $ idDoncente = '' ) {
-    
-            $ this -> db -> consultas ( '
-                eliminar docentes
-                de docentes
-                donde docentes.idDocente = "' . $ idDoncente . '"
-            ' );
-           
-                $ this -> respuesta [ 'msg' ] = 'Registro eliminado correctamente' ;
-      
+    public function eliminarpelicula($idpelicula=''){
+        $this->db->consultas('
+            delete peliculas
+            from peliculas
+            where peliculas.idpelicula = "'.$idpelicula.'"
+        ');
+        $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
- 
-    
 }
 ?>

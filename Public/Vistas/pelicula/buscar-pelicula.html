@@ -1,0 +1,44 @@
+<form method="POST" id="frm-buscar-pelicula">
+    <div class="card text-dark bg-info" style="max-width: 48rem;">
+        <div class="car-header">
+            BUSQUEDA DE PELICULA
+
+            <button type="button" id="btn-close-buscar-pelicula" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="card-body">
+            <table id="tbl-buscar-pelicula" class="table-striped table-dark table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="5">
+                            <input type="text" v-model="valor" v-on:keyup="buscarpelicula"  placeholder="descripcion,duracion,genero" class="form-control">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>DESCRIPCION</th>
+                        <th>SINOPSIS</th>
+                        <th>GENERO</th>
+                        <th>DURACION</th>
+                      
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="movie in mispelicula" :key="movie.idpelicula" v-on:click="modificarpelicula(movie)">
+                        <td>{{ movie.descripcion }}</td>
+                        <td>{{ movie.sinopsis }}</td>
+                        <td>{{ movie.genero }}</td>
+                        <td>{{ movie.duracion }}</td>
+                       
+                        <td>
+                            <input v-on:click="eliminarpelicula(movie.idpelicula)" type="button" class="btn btn-outline-danger text-white" value="del">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</form>
+<script src="public/vistas/pelicula/buscar-pelicula.js"></script>

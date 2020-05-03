@@ -2,7 +2,7 @@
 class Conexion{
     private $Conexion='', $result='';
 
-    public function Conexion($server, $user, $pass, $db="db_sistema_peliculas"){
+    public function Conexion($server, $user, $pass, $db){
         $this->conexion = mysqli_connect($server,$user,$pass,$db) or die('NO pude conectarme al servidor de BD');
     }
     public function consultas($sql=''){

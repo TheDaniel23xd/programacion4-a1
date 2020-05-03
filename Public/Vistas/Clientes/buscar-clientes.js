@@ -1,29 +1,29 @@
-var appBuscarClientes = new Vue({
-    el:'#frm-buscar-clientes',
+var appBuscarCliente = new Vue({
+    el:'#frm-buscar-cliente',
     data:{
-        misclientes:[],
+        miscliente:[],
         valor:''
     },
     methods:{
-        buscarclientes:function(){
-            fetch(`private/Modulos/Clientes/procesos.php?proceso=buscarcliente&clientes=${this.valor}`).then(resp=>resp.json()).then(resp=>{
-                this.misclientes = resp;
+        buscarCliente:function(){
+            fetch(`private/Modulos/cliente/procesos.php?proceso=buscarCliente&cliente=${this.valor}`).then(resp=>resp.json()).then(resp=>{
+                this.miscliente = resp;
             });
         },
-        modificarClientes:function(Clientes){
-            appclientes.Clientes = Clientes;
-            appclientes.Clientes.accion = 'modificar';
+        modificarCliente:function(cliente){
+            appcliente.cliente = cliente;
+            appcliente.cliente.accion = 'modificar';
         },
-        eliminarClientes:function(idAlumno){
+        eliminarCliente:function(idcliente){
             if(confirm("Estas seguro de eliminar este registro?")){
-                fetch(`private/Modulos/Clientes/procesos.php?proceso=eliminarClientes&clientes=${idCliente}`).then(resp=>resp.json()).then(resp=>{
-                    this.buscarAlumno();
+                fetch(`private/Modulos/cliente/procesos.php?proceso=eliminarcliente&cliente=${idcliente}`).then(resp=>resp.json()).then(resp=>{
+                    this.buscarCliente();
                 });
             }
 
         }
     },
     created:function(){
-        this.buscarclientes();
+        this.buscarCliente();
     }
 });

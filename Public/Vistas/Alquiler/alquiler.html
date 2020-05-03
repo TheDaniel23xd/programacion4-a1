@@ -1,0 +1,65 @@
+<form v-on:submit.prevent="guardarAlquiler" v-on:reset="limpiarAlquiler" id="frm-alquiler">
+    <div class="card text-dark -white bg-info">
+        <div class="card-header">
+            ALQUILER PELICULAS
+
+            <button type="button" id="btn-close-alquiler" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="card-body">
+            <div class="row row-cols-1 p-2">
+                <div class="row-col">
+                   
+                    <div class="col-6 float-left">
+                        Fecha Prestamo
+                        <input type="date" required v-model="alquiler.fechaP" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6 float-right">
+                        Fecha Devolucion
+                        <input type="date" required v-model="alquiler.fechaD" class="form-control form-control-sm">
+                    </div>
+                   
+                </div>
+            </div>
+           
+            <div class="row-col">
+               
+                <div class="col-6 float-left">
+                    peli
+                    <v-select class="bg-info" v-model="alquiler.pelicula":options="pelicula" placeholder="Pelicula" />
+                </div>
+                <div class="col-6 float-right">
+                    cliente
+                    <v-select class="bg-info" v-model="alquiler.cliente":options="cliente" placeholder="Cliente" />
+                </div>
+            </div>
+            <div class="row row-cols-1 p-2">
+                <div class="row-col">
+                    <div class="col">
+                        VALOR:
+                    </div>
+                    <div class="col">
+                        <input type="text" required v-model="alquiler.valor" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 p-2">
+                <div class="row-col text-center">
+                    <div class="col">
+                        <input id="btnGuardaalquiler" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
+                        <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
+                        <input type="button" class="btn btn-outline-success mostrar-buscar-alquiler text-white" data-modulo="alquiler" data-form="buscar-alquiler" value="Buscar" >
+                </div>
+            </div>
+            <div class="row row-cols-1 p-2">
+                <div class="row-col text-center">
+                    <div class="col">
+                        <div class="alert alert-success" role="alert">{{alquiler.msg }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="public/vistas/alquiler/alquiler.js"></script>

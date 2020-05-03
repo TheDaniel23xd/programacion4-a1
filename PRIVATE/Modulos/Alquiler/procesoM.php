@@ -1,80 +1,112 @@
-<? php 
-include ( '../../Config/Config.php' );
-$ materia = nueva materia ( $ Conexion );
+<?php
+include('../../Config/Config.php');
+$alquiler = new alquiler($Conexion  );
 
-$ proceso = '' ;
-if ( isset ( $ _GET [ 'proceso' ]) && strlen ( $ _GET [ 'proceso' ])> 0 ) {
-	$ proceso = $ _GET [ 'proceso' ];
+$proceso = '';
+if( isset($_GET['proceso']) && strlen($_GET['proceso'])>0 ){
+	$proceso = $_GET['proceso'];
 }
-$ materia -> $ proceso ( $ _GET [ 'materia' ]);
-print_r ( json_encode ( $ materia -> respuesta ));
+$alquiler->$proceso( $_GET['alquiler'] );
+print_r(json_encode($alquiler->respuesta));
 
-materia de clase {
-    privado  $ datos = array (), $ db ;
-    public  $ respuesta = [ 'msg' => 'correcto' ];
+class alquiler{
+    private $datos = array(), $db;
+    public $respuesta = ['msg'=>'correcto'];
     
-     función  pública __construct ( $ db ) {
-        $ this -> db = $ db ;
+    public function __construct($db){
+        $this->db=$db;
     }
-     función  pública recibirDatos ( $ materia ) {
-        $ this -> datos = json_decode ( $ materia , verdadero );
-        $ this -> validar_datos ();
+    public function recibirDatos($alquiler){
+        $this->datos = json_decode($alquiler, true);
+        $this->validar_datos();
     }
-     función  privada validar_datos () {
-        if ( empty ( $ this -> datos [ 'codigo' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el codigo de la materia' ;
+    private function validar_datos(){
+        if( empty($this->datos['cliente']['id']) ){
+            $this->respuesta['msg'] = 'por favor ingrese el cliente del alquiler';
         }
-        if ( empty ( $ this -> datos [ 'nombre' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese el nombre de la materia' ;
+        if( empty($this->datos['pelicula']['id']) ){
+            $this->respuesta['msg'] = 'por favor ingrese el pelicula';
         }
-        if ( empty ( $ this -> datos [ 'facultad' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese la facultad de la materia' ;
-		}
-		if ( empty ( $ this -> datos [ 'carrera' ])) {
-            $ this -> respuesta [ 'msg' ] = 'por favor ingrese la carrera de la materia' ;
-        }
-        $ this -> almacen_materia ();
+        $this->almacenar_alquiler();
     }
-     función  privada almacena_materia () {
-        if ( $ this -> respuesta [ 'msg' ] === 'correcto' ) {
-            if ( $ this -> datos [ 'accion' ] === 'nuevo' ) {
-                $ this -> db -> consultas ( '
-                    INSERTAR EN MATERIALES (codigo, nombre, facultad, carrera) VALORES (
-                        "' . $ this -> datos [ ' codigo ' ]. '",
-                        "' . $ this -> datos [ ' nombre ' ]. '",
-                        "' . $ this -> datos [ ' facultad ' ]. '",
-                        "' . $ this -> datos [ ' carrera ' ]. '"
+    private function almacenar_alquiler(){
+        if( $this->respuesta['msg']==='correcto' ){
+            if( $this->datos['accion']==='nuevo' ){
+                $this->db->consultas('
+                    INSERT INTO alquiler (idcliente,idpelicula,fechaprestamo,fechadevolucion,valor) VALUES(
+                        "'. $this->datos['cliente']['id'] .'",
+                        "'. $this->datos['pelicula']['id'] .'",
+                        "'. $this->datos['fechaP'] .'",
+                        "'. $this->datos['fechaD'] .'",
+                        "'. $this->datos['valor'] .'"
                     )
-                ' );
-                $ this -> respuesta [ 'msg' ] = 'Registro insertado correctamente' ;
-            } else  if ( $ this -> datos [ 'accion' ] === 'modificar' ) {
-                $ this -> db -> consultas ( '
-                   ACTUALIZAR conjunto de materiales
-                        codigo = "' . $ this -> datos [ ' codigo ' ]. '",
-                        nombre = "' . $ this -> datos [ ' nombre ' ]. '",
-                        facultad = "' . $ this -> datos [ ' facultad ' ]. '",
-                        carrera = "' . $ this -> datos [ ' carrera ' ]. '"
-                    DONDE idMateria = " ' $ este -> Datos [ 'idMateria' ]. '"
-                ' );
-                $ this -> respuesta [ 'msg' ] = 'Registro actualizado correctamente' ;
+                ');
+                $this->respuesta['msg'] = 'Registro insertado correctamente';
+            } else if( $this->datos['accion']==='modificar' ){
+                $this->db->consultas('
+                    UPDATE alquiler SET
+                        idcliente              = "'. $this->datos['cliente']['id'] .'",
+                        idpelicula             = "'. $this->datos['pelicula']['id'] .'",
+                        fechaprestamo          = "'. $this->datos['fechaP'] .'",
+                        fechadevolucion        = "'. $this->datos['fechaD'] .'",
+                        valor                  = "'. $this->datos['valor'] .'"
+                    WHERE idalquiler           = "'. $this->datos['idalquiler'] .'"
+                ');
+                $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
         }
     }
-     función  pública buscarMateria ( $ valor = '' ) {
-        $ this -> db -> consultas ( '
-            seleccione materias.idMateria, materias.codigo, materias.nombre, materias.facultad, materias.carrera
-            de materias
-            donde materias.codigo como "% ' . $ valor . '%" o materias.nombre como "% ' . $ valor . '%" o materias.facultad como "% ' . $ valor . '%" o materias.carrera como "% ' . $ valor . '%"
-        ' );
-        devuelve  $ this -> respuesta = $ this -> db -> obtener_datos ();
+    public function buscaralquiler($valor = ''){
+        if( substr_count($valor, '-')===2 ){
+            $valor = implode('-', array_reverse(explode('-',$valor)));
+        }
+        $this->db->consultas('
+        SELECT alquiler.idalquiler,alquiler.idcliente,alquiler.idpelicula,
+        alquiler.fechaprestamo,alquiler.fechadevolucion,peliculas.descripcion,cliente.nombre,alquiler.valor from alquiler JOIN peliculas ON(peliculas.idpelicula=alquiler.idpelicula) JOIN cliente ON(cliente.idcliente=alquiler.idcliente)
+            WHERE peliculas.descripcion like "%'. $valor .'%" or 
+                cliente.nombre like "%'. $valor .'%" or 
+                alquiler.valor like "%'. $valor .'%" 
+        ');
+        $alquiler = $this->respuesta = $this->db->obtener_datos();
+        foreach ($alquiler as $key => $value) {
+            $datos[] = [
+                'idalquiler' => $value['idalquiler'],
+                'cliente'      => [
+                    'id'      => $value['idcliente'],
+                    'label'   => $value['nombre']
+                ],
+                'peliculas'    => [
+                    'id'      => $value['idpelicula'],
+                    'label'   => $value['descripcion']
+                ],
+                'fechaP'        => $value['fechaprestamo'],
+                'fechaD'        => $value['fechadevolucion'],
+                'valor'         =>$value['valor']
+
+            ]; 
+        }
+        return $this->respuesta = $datos;
     }
-     función  pública eliminarMateria ( $ idMateria = '' ) {
-        $ this -> db -> consultas ( '
-            eliminar materias
-            de materias
-            donde materias.idMateria = "' . $ idMateria . '"
-        ' );
-        $ this -> respuesta [ 'msg' ] = 'Registro eliminado correctamente' ;
+    public function traer_cliente_pelicula(){
+        $this->db->consultas('
+            select cliente.nombre AS label, cliente.idcliente AS id
+            from cliente
+        ');
+        $cliente = $this->db->obtener_datos();
+        $this->db->consultas('
+            select peliculas.descripcion AS label, peliculas.idpelicula AS id
+            from peliculas
+        ');
+        $pelicula = $this->db->obtener_datos();
+        return $this->respuesta = ['clientes'=>$cliente, 'peliculas'=>$pelicula ];//array de php en v7+
+    }
+    public function eliminaralquiler($idalquiler = 0){
+        $this->db->consultas('
+            DELETE alquiler
+            FROM alquiler
+            WHERE alquiler.idalquiler="'.$idalquiler.'"
+        ');
+        return $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
 }
 ?>

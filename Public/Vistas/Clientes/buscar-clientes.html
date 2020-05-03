@@ -1,18 +1,18 @@
-<form method="POST" id="frm-buscar-clientes">
-    <div class="card text-white bg-dark mb-3" style="max-width: 48rem;">
+<form method="POST" id="frm-buscar-cliente">
+    <div class="card text-dark bg-info" style="max-width: 48rem;">
         <div class="car-header">
-            BUSQUEDA de clientes
+            BUSQUEDA CLIENTES
 
-            <button type="button" id="btn-close-buscar-clientes" class="close" aria-label="Close">
+            <button type="button" id="btn-close-buscar-cliente" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="card-body">
-            <table id="tbl-buscar-clientes" class="table-striped table-dark table-bordered table-hover">
+            <table id="tbl-buscar-cliente" class="table-striped table-dark table-bordered table-hover">
                 <thead>
                     <tr>
                         <th colspan="5">
-                            <input type="text" v-model="valor" v-on:keyup="buscarcliente" placeholder="dui o nombre" class="form-control">
+                            <input type="text" v-model="valor" v-on:keyup="buscarCliente" placeholder="nombre telefono o dui" class="form-control">
                         </th>
                     </tr>
                     <tr>
@@ -20,17 +20,17 @@
                         <th>DIRECCION</th>
                         <th>TELEFONO</th>
                         <th>DUI</th>
-                        <th> </th>
+                       
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="Clientes in misalumnos" :key="Clientes.idCliente" v-on:click="modificarClientes(clientes)">
-                        <td>{{ Clientes.nombre }}</td>
-                        <td>{{ Clientes.direccion }}</td>
-                        <td>{{ Clientes.telefono }}</td>
-                        <td>{{ Clientes.dui }}</td>
+                    <tr v-for="usuario in miscliente" :key="usuario.idcliente" v-on:click="modificarCliente(usuario)">
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.direccion }}</td>
+                        <td>{{ usuario.telefono }}</td>
+                        <td>{{ usuario.dui }}</td>
                         <td>
-                            <input v-on:click="eliminarClientes(Clientes.idCliente)" type="button" class="btn btn-outline-danger text-white" value="del">
+                            <input v-on:click="eliminarCliente(usuario.idcliente)" type="button" class="btn btn-outline-danger text-white" value="del">
                         </td>
                     </tr>
                 </tbody>
@@ -38,4 +38,4 @@
         </div>
     </div>
 </form>
-<script src="/Public/Vistas/Clientes/buscar-clientes.js"></script>
+<script src="public/vistas/cliente/buscar-cliente.js"></script>

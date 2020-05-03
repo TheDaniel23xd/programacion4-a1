@@ -1,53 +1,60 @@
-<form v-on:submit.prevent="guardarClientes"  data-accion="nuevo" data-idalumno='' id="frm-clientes" method="post">
-    <div class="card text-white bg-dark mb-3" style="max-width: 24rem;">
+<form v-on:submit.prevent="guardarcliente"  data-accion="nuevo" data-idcliente='' v-on:reset.prevent="limpiarcliente" id="frm-cliente" method="post">
+    <div class="card  text-dark bg-info" style="max-width: 24rem;">
         <div class="card-header">
-                MANTENIMIENTO clientes
-        
-            <button type="button" id="btn-close-clientes" class="close" aria-label="Close">
+                CLIENTE
+            <button type="button" id="btn-close-cliente" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="card-body">
             <div class="row p-2">
                 <div class="col-4">
-                    NOMBRE
+                    Nombre
                 </div>
                 <div class="col-8">
-                    <input type="text" v-model="clientes.nombre" placeholder="AAA AAA" class="form-control">
+                    <input type="text" required pattern="[a-zA-ZñÑ]{3,25}" v-model="cliente.nombre" placeholder="AAA AAA" class="form-control">
                 </div>
             </div>
             <div class="row p-2">
                 <div class="col-4">
-                    DIRECCION
+                    Direccion
                 </div>
                 <div class="col-8">
-                    <input type="text" v-model="clientes.direccion" placeholder="AAA" class="form-control">
+                    <input type="text" required pattern="[a-zA-ZñÑ]{0,100}" v-model="cliente.direccion" placeholder="AAA" class="form-control">
                 </div>
             </div>
             <div class="row p-2">
                 <div class="col-4">
-                    TEL
+                    Telefono
                 </div>
                 <div class="col-8">
-                    <input type="text" v-model="clientes.telefono" placeholder="0000-0000" class="form-control">
+                    <input type="text" required pattern="[0-9]{4}-[0-9]{4}" v-model="cliente.telefono" placeholder="0000-0000" class="form-control">
+                </div>
+			</div>
+			<div class="row p-2">
+                <div class="col-4">
+                    Dui
+                </div>
+                <div class="col-8">
+                    <input type="text" required pattern="[0-9]{8}-[0-9]{1}" v-model="cliente.dui" placeholder="0000000-0" class="form-control">
                 </div>
             </div>
           
             <div class="row p-2"> 
                 <div class="col-12 text-center">
-                    <input id="btnGuardarClientes" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
+                    <input id="btnGuardarclientes" type="submit" class="btn btn-outline-primary text-white" value="Guardar">
                     <input type="reset" class="btn btn-outline-warning text-white" value="Limpiar">
-                    <input type="button" class="btn btn-outline-success mostrar-buscar-clientes text-white" data-modulo="clientes" data-form="buscar-clientes" value="Buscar">
+                    <input type="button" class="btn btn-outline-success mostrar-buscar-cliente text-white" data-modulo="cliente" data-form="buscar-cliente" value="Buscar">
                 </div>
             </div>
             <div class="row p-2">
                 <div class="col-12 text-center">
                     <div class="alert alert-success" role="alert">
-                        {{ clientes.msg }}
+                        {{ cliente.msg }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </form>
-<script src="/Public/Vistas/Clientes/Clientes.js"></script>
+<script src="public/vistas/cliente/cliente.js"></script>

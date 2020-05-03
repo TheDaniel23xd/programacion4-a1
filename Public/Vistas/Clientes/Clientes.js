@@ -1,28 +1,31 @@
-var appclientes = new Vue({
-    el:'#frm-clientes',
+var appcliente = new Vue({
+    el:'#frm-cliente',
     data:{
-        Clientes:{
-            idAlumno  : 0,
+        cliente:{
+            idcliente  : 0,
             accion    : 'nuevo',
             nombre    : '',
             direccion : '',
-            telefono  : '',
-            dui       : '',
+			telefono  : '',
+			dui		  :'',
             msg       : ''
         }
     },
     methods:{
-        guardarAlumno:function(){
-            fetch(`private/Modulos/Clientes/procesos.php?proceso=recibirDatos&clientes=${JSON.stringify(this.clientes)}`).then( resp=>resp.json() ).then(resp=>{
-                this.clientes.msg = resp.msg;
-                this.clientes.idCliente = 0;
-                this.clientes.nombre = '';
-                this.clientes.direccion = '';
-                this.clientes.telefono = '';
-                this.clientes.dui = '';
-                this.clientes.accion = 'nuevo';
+        guardarcliente:function(){
+            fetch(`private/Modulos/cliente/procesos.php?proceso=recibirDatos&cliente=${JSON.stringify(this.cliente)}`).then( resp=>resp.json() ).then(resp=>{
+                this.cliente.msg = resp.msg;
+                
               
             });
+        },
+        limpiarcliente(){
+            this.cliente.idcliente = 0;
+                this.cliente.nombre = '';
+                this.cliente.direccion = '';
+				this.cliente.telefono = '';
+				this.cliente.dui='';
+                this.cliente.accion = 'nuevo';
         }
     }
 });
