@@ -39,7 +39,7 @@ class pelicula{
         if( $this->respuesta['msg']==='correcto' ){
             if( $this->datos['accion']==='nuevo' ){
                 $this->db->consultas('
-                    INSERT INTO peliculas (descripcion,sinopsis,genero,duracion) VALUES(
+                    INSERT INTO pelicula (descripcion,sinopsis,genero,duracion) VALUES(
                         "'. $this->datos['descripcion'] .'",
                         "'. $this->datos['sinopsis'] .'",
                         "'. $this->datos['genero'] .'",
@@ -54,7 +54,7 @@ class pelicula{
                         sinopsis         = "'. $this->datos['sinopsis'] .'",
                         genero           = "'. $this->datos['genero'] .'",
                         duracion         = "'. $this->datos['duracion'] .'"
-                    WHERE idpelicula     = "'. $this->datos['idpelicula'] .'"
+                    WHERE idPelicula     = "'. $this->datos['idPelicula'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -62,17 +62,17 @@ class pelicula{
     }
     public function buscarpelicula($valor=''){
         $this->db->consultas('
-            select peliculas.idpelicula, peliculas.descripcion, peliculas.sinopsis, peliculas.genero, peliculas.duracion
-            from peliculas
-            where peliculas.descripcion like "%'.$valor.'%" or peliculas.duracion like "%'.$valor.'%" or peliculas.genero like "%'.$valor.'%"
+            select pelicula.idPelicula, pelicula.descripcion, pelicula.sinopsis, pelicula.genero, pelicula.duracion
+            from pelicula
+            where pelicula.descripcion like "%'.$valor.'%" or pelicula.duracion like "%'.$valor.'%" or pelicula.genero like "%'.$valor.'%"
         ');
         return $this->respuesta = $this->db->obtener_datos();
     }
-    public function eliminarpelicula($idpelicula=''){
+    public function eliminarpelicula($idPelicula=''){
         $this->db->consultas('
-            delete peliculas
-            from peliculas
-            where peliculas.idpelicula = "'.$idpelicula.'"
+            delete pelicula
+            from pelicula
+            where pelicula.idPelicula = "'.$idPelicula.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }

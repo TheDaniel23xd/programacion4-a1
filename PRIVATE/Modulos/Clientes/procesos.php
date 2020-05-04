@@ -54,7 +54,7 @@ class cliente{
                         direccion     = "'. $this->datos['direccion'] .'",
                         telefono      = "'. $this->datos['telefono'] .'",
                         dui           = "'. $this->datos['dui'] .'"
-                    WHERE idcliente = "'. $this->datos['idcliente'] .'"
+                    WHERE idCliente = "'. $this->datos['idCliente'] .'"
                 ');
                 $this->respuesta['msg'] = 'Registro actualizado correctamente';
             }
@@ -72,7 +72,7 @@ class cliente{
         $this->db->consultas('
             delete cliente
             from cliente
-            where cliente.idcliente = "'.$idcliente.'"
+            where cliente.idCliente = "'.$idCliente.'"
         ');
         $this->respuesta['msg'] = 'Registro eliminado correctamente';
     }
