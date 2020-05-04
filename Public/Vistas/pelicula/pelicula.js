@@ -13,7 +13,7 @@ var apppelicula = new Vue({
     },
     methods:{
         guardarpelicula:function(){
-            fetch(`Private/Modulos/pelicula/procesos.php?proceso=recibirDatos&pelicula=${JSON.stringify(this.pelicula)}`).then( resp=>resp.json() ).then(resp=>{
+            fetch(`Private/Modulos/Pelicula/procesosD.php?proceso=recibirDatos&pelicula=${JSON.stringify(this.pelicula)}`).then( resp=>resp.json() ).then(resp=>{
                 this.pelicula.msg = resp.msg;
             
                 
