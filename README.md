@@ -1,4 +1,4 @@
-# App Academica
+# parcial 2
 
 ![Project Image](Public/img/P.PNG)
 
