@@ -49,7 +49,7 @@ class pelicula{
                 $this->respuesta['msg'] = 'Registro insertado correctamente';
             } else if( $this->datos['accion']==='modificar' ){
                 $this->db->consultas('
-                   UPDATE peliculas SET
+                   UPDATE pelicula SET
                         descripcion      = "'. $this->datos['descripcion'] .'",
                         sinopsis         = "'. $this->datos['sinopsis'] .'",
                         genero           = "'. $this->datos['genero'] .'",
