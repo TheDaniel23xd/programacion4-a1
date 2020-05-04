@@ -1,6 +1,6 @@
-# App Academica
+# parcial 2
 
-![Project Image](Public/img/P.PNG)
+
 
 > Contenido de la cátedra de programación IV-CICLOI-2020
 
